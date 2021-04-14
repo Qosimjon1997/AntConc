@@ -206,9 +206,9 @@
                                 <TextBlock Grid.Column="0" FontSize="14" Text="Search Term" FontWeight="Bold"/>
                                 <TextBox Grid.Column="1" x:Name="txtTab4Search" FontSize="14" Margin="20,0,0,0"/>
                                 <TextBlock Grid.Column="2" FontSize="14" Margin="5,0,0,0" Text="Min" FontWeight="Bold"/>
-                                <xctk:IntegerUpDown Grid.Column="3" Margin="10,0,0,0" x:Name="myUpDown1" Value="2" ValueChanged="myUpDown1_ValueChanged"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
+                                <xctk:IntegerUpDown Grid.Column="3" Margin="10,0,0,0" x:Name="myUpDown1" Value="2"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
                                 <TextBlock Grid.Column="4" FontSize="14" Margin="5,0,0,0" Text="Max" FontWeight="Bold"/>
-                                <xctk:IntegerUpDown Grid.Column="5"  Margin="10,0,0,0" x:Name="myUpDown2" Value="2" ValueChanged="myUpDown2_ValueChanged"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
+                                <xctk:IntegerUpDown Grid.Column="5"  Margin="10,0,0,0" x:Name="myUpDown2" Value="2"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
                                 <Button Grid.Column="6"  FontSize="14" Margin="10,0,0,0" x:Name="btnTab4Ok" Click="btnTab4Ok_Click" Content="Start"/>
                             </Grid>
                         </Grid>

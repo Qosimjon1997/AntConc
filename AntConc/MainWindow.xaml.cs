@@ -139,7 +139,7 @@ namespace AntConc
         private void btnTab3Ok_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
+            { 
                 var myFile = File.ReadAllText(myOpenedFile);
                 txtRichText.Text = myFile;
                 var myFile2 = (File.ReadAllText(myOpenedFile)).Split();
@@ -151,16 +151,6 @@ namespace AntConc
             {
                 MessageBox.Show("File not selected!");
             }
-        }
-
-        private void myUpDown1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-
-        }
-
-        private void myUpDown2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-
         }
 
         private void btnTab4Ok_Click(object sender, RoutedEventArgs e)
