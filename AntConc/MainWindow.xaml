@@ -31,15 +31,15 @@
                     <RowDefinition Height="Auto"/>
 
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="Corpus Files" FontWeight="Bold" FontSize="14"/>
+                <Label Grid.Row="0" Content="Fayl nomi" FontWeight="Bold" FontSize="14"/>
                 <TextBox Grid.Row="1"  x:Name="txtNameOfFile" IsEnabled="False"/>
-                <Label Grid.Row="2" Content="Total No."/>
+                <Label Grid.Row="2" Content="Umumiy fayllar soni"/>
                 <TextBox Grid.Row="3" IsEnabled="False" Text="1"/>
             </Grid>
 
             <Grid Grid.Column="1" Margin="10,5,10,10">
                 <TabControl>
-                    <TabItem Header="Concordance" FontSize="14">
+                    <TabItem Header="Muvofiqlik" FontSize="14">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -52,94 +52,25 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Concordance Hits   " FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="0" Text="Muvofiqlik kombinatsiyasi   " FontSize="14" FontWeight="Bold"/>
                                 <TextBlock Grid.Column="1" x:Name="labNumberHits" Text="" FontSize="14"/>
                             </Grid>
-                            <ListView  Grid.Row="1" x:Name="DG"  ItemsSource="{Binding}"  SelectionMode="Single"  FontSize="14" Margin="0,10,0,10">
-                                <ListView.View>
-                                    <GridView>
-                                        <GridViewColumn Header="Hit" DisplayMemberBinding="{Binding Id}" Width="40"/>
-                                        <GridViewColumn Header="KWIC" DisplayMemberBinding="{Binding myWords}" />
-                                        <GridViewColumn Header="File" DisplayMemberBinding="{Binding myFile}"/>
-                                    </GridView>
-                                </ListView.View>
-                            </ListView>
+
+                            <RichTextBox Grid.Row="1" IsReadOnly="True" x:Name="txtRichText1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Search Term" FontWeight="Bold"/>
+                                <TextBlock Text="Qidirilayotgan so'z" FontWeight="Bold"/>
                                 <TextBox Grid.Column="1" x:Name="txtTab1Search" Margin="20,0,20,0"/>
                                 <Button Grid.Column="2" x:Name="btnTab1Ok" Click="btnTab1Ok_Click" Content="Start"/>
-                                <TextBox Grid.Column="3" x:Name="txtTab11Search" TextChanged="txtTab11Search_TextChanged" Margin="20,0,20,0"/>
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Concordance Plot" FontSize="14">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Concordance Hits   " FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Grid.Column="1" x:Name="labNumberHits2" Text="" FontSize="14"/>
-                                <TextBlock Grid.Column="2" Padding="80,0,0,0" Text="Total Plots (with hits)   " FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Grid.Column="3" x:Name="labTotalPlots" Text="1" FontSize="14"/>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Plot:"/>
-                                <TextBlock Grid.Column="1" Margin="5,0,0,0" Text="1" />
-                                <TextBlock Grid.Column="2" Margin="5,0,0,0" Text="File:" />
-                                <TextBlock Grid.Column="3" x:Name="labTab2FileName" Margin="5,0,0,0" Text=""/>
-                                <TextBlock Grid.Column="4" Margin="5,0,0,0" Text="Hits:" />
-                                <TextBlock Grid.Column="5" x:Name="labTab2HitsCount" Margin="5,0,0,0" Text="" />
-                                <TextBlock Grid.Column="6" Margin="5,0,0,0" Text="Chars:"/>
-                                <TextBlock Grid.Column="7" x:Name="labTab2CharsCount" Margin="5,0,0,0" Text=""/>
-                            </Grid>
-
-                            <DataGrid Grid.Row="2" x:Name="DG2" CanUserDeleteRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="FullRow"  FontSize="14" Margin="0,10,0,10">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Hits" Width="*"  Binding="{Binding Id, Mode=OneWay}"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                            
-                            
-                            <Grid Grid.Row="3">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="Search Term" FontWeight="Bold"/>
-                                <TextBox Grid.Column="1" x:Name="txtTab2Search" Margin="20,0,20,0"/>
-                                <Button Grid.Column="2" x:Name="btnTab2Ok" Click="btnTab2Ok_Click" Content="Start"/>
-                            </Grid>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="File View" FontSize="14">
+                    <TabItem Header="Fayldan ko'rish" FontSize="14">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -154,13 +85,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="File View Hits   " FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="0" Text="Fayldan topilgan kombinatsialar soni   " FontSize="14" FontWeight="Bold"/>
                                 <TextBlock Grid.Column="1" x:Name="labNumberHits3" Text="" FontSize="14"/>
-                                <TextBlock Grid.Column="2" Padding="80,0,0,0" Text="File   " FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="2" Padding="80,0,0,0" Text="Fayl   " FontSize="14" FontWeight="Bold"/>
                                 <TextBlock Grid.Column="3" x:Name="labFileName3" Text="" FontSize="14"/>
                             </Grid>
 
-                            <RichTextBox Grid.Row="1" x:Name="txtRichText" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+                            <RichTextBox Grid.Row="1" IsReadOnly="True" x:Name="txtRichText" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
 
                             <Grid Grid.Row="2">
                                 <Grid.ColumnDefinitions>
@@ -168,13 +99,13 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="Search Term" FontWeight="Bold"/>
+                                <TextBlock Text="Qidirilayotgan so'z" FontWeight="Bold"/>
                                 <TextBox Grid.Column="1" x:Name="txtTab3Search" Margin="20,0,20,0"/>
                                 <Button Grid.Column="2" x:Name="btnTab3Ok" Click="btnTab3Ok_Click" Content="Start"/>
                             </Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Clusters/N-Grams" FontSize="14">
+                    <TabItem Header="Klasterlar / N-grammlar" FontSize="14">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -189,15 +120,13 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" Text="Total No. of Cluster Types   " FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="0" Text="Klaster turlarining umumiy soni   " FontSize="14" FontWeight="Bold"/>
                                 <TextBlock Grid.Column="1" x:Name="labNumberHits4" Text="" FontSize="14"/>
-                                <TextBlock Grid.Column="2" Padding="80,0,0,0" Text="Total No. of Cluster Types   " FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Grid.Column="3" x:Name="labTotalNo4" Text="" FontSize="14"/>
                             </Grid>
                             <DataGrid Grid.Row="1" x:Name="DG4" CanUserDeleteRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single" SelectionUnit="FullRow"  FontSize="14" Margin="0,10,0,10">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Rank" Width="50"  Binding="{Binding Id, Mode=OneWay}"/>
-                                    <DataGridTextColumn Header="Hits" Width="*"  Binding="{Binding myWords, Mode=OneWay}"/>
+                                    <DataGridTextColumn Header="Daraja" Width="50"  Binding="{Binding Id, Mode=OneWay}"/>
+                                    <DataGridTextColumn Header="Xillar" Width="*"  Binding="{Binding myWords, Mode=OneWay}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Grid Grid.Row="2">
@@ -210,13 +139,56 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" FontSize="14" Text="Search Term" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="0" FontSize="14" Text="Qidirilayotgan so'z" FontWeight="Bold"/>
                                 <TextBox Grid.Column="1" x:Name="txtTab4Search" FontSize="14" Margin="20,0,0,0"/>
                                 <TextBlock Grid.Column="2" FontSize="14" Margin="5,0,0,0" Text="Min" FontWeight="Bold"/>
                                 <xctk:IntegerUpDown Grid.Column="3" Margin="10,0,0,0" x:Name="myUpDown1" Value="2"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
                                 <TextBlock Grid.Column="4" FontSize="14" Margin="5,0,0,0" Text="Max" FontWeight="Bold"/>
                                 <xctk:IntegerUpDown Grid.Column="5"  Margin="10,0,0,0" x:Name="myUpDown2" Value="2"  Minimum="1" Increment="1" Maximum="10" FontSize="14"/>
                                 <Button Grid.Column="6"  FontSize="14" Margin="10,0,0,0" x:Name="btnTab4Ok" Click="btnTab4Ok_Click" Content="Start"/>
+                            </Grid>
+                        </Grid>
+
+                    </TabItem>
+                    <TabItem Header="So'zlar ro'yxati" FontSize="14">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Word Types:  " FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Grid.Column="1" x:Name="labWordType4" Text="" FontSize="14"/>
+                            </Grid>
+
+                            <ListView  Grid.Row="1" x:Name="DG5"  ItemsSource="{Binding}"  SelectionMode="Single"  FontSize="14" Margin="0,10,0,10">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Darajasi" DisplayMemberBinding="{Binding Id}" Width="80"/>
+                                        <GridViewColumn Header="Soni" DisplayMemberBinding="{Binding Count}" />
+                                        <GridViewColumn Header="So'z" DisplayMemberBinding="{Binding Word}" Width="400"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0"  FontSize="14" Margin="10,0,0,0" x:Name="btnTab5Convert" Click="btnTab5Convert_Click" Content="Faylga ko'chirish"/>
+                                <Button Grid.Column="6"  FontSize="14" Margin="10,0,0,0" x:Name="btnTab5Ok" Click="btnTab5Ok_Click" Content="Start"/>
                             </Grid>
                         </Grid>
 
